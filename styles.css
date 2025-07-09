@@ -2,8 +2,8 @@ body {
         font-family: sans-serif;
         text-align: center;
         margin-top: 50px;
-      }
-      button {
+}
+button {
         font-size: 18px;
         padding: 12px 24px;
         border: none;
@@ -11,11 +11,11 @@ body {
         color: white;
         border-radius: 8px;
         cursor: pointer;
-      }
-      button:hover {
+}      
+button:hover {
         background-color: #45a049;
-      }
-      #status {
+}
+#status {
         margin-top: 20px;
         font-size: 16px;
-      }
+}
