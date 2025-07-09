@@ -4,6 +4,35 @@
     <title>Weekly Report Bot</title>
   </head>
   <body>
-    <h1>Press this button to send the e-mail to <a href="management.and.product.dev.leads@journaway.com">management.and.product.dev.leads@journaway.com</a></h1>
+    <h1>
+      Press this button to send the weekly report to
+      <a href="mailto:management.and.product.dev.leads@journaway.com">
+        management.and.product.dev.leads@journaway.com
+      </a>
+    </h1>
+
+    <button onclick="runScript()">Send Report</button>
+
+    <div id="status"></div>
+
+    <script>
+      async function runScript() {
+        const statusEl = document.getElementById("status");
+        statusEl.textContent = "⏳ Running script...";
+
+        try {
+          const response = await fetch("https://weeklyreport.onrender.com/run");
+          const data = await response.json();
+
+          if (response.ok) {
+            statusEl.textContent = "✅ Report sent successfully!";
+          } else {
+            statusEl.textContent = "❌ Error: " + data.message;
+          }
+        } catch (error) {
+          statusEl.textContent = "❌ Request failed: " + error.message;
+        }
+      }
+    </script>
   </body>
 </html>
